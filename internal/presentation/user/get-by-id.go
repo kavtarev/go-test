@@ -10,6 +10,10 @@ type UserController struct {
 	usecase usecase.GetUserUsecase
 }
 
+func NewUserController(usecase usecase.GetUserUsecase) UserController {
+	return UserController{usecase: usecase}
+}
+
 func (c *UserController) GetById(w http.ResponseWriter, r *http.Request) {
 	_, err := c.usecase.GetById(context.Background(), "")
 	if err != nil {

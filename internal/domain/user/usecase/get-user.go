@@ -6,7 +6,11 @@ import (
 )
 
 type GetUserUsecase struct {
-	service user.UserService
+	service user.IService
+}
+
+func NewGetUserUsecase(service user.IService) *GetUserUsecase {
+	return &GetUserUsecase{service: service}
 }
 
 func (u *GetUserUsecase) GetById(ctx context.Context, id string) (*user.UserDomain, error) {
