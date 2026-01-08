@@ -23,7 +23,7 @@ func NewPostgresRepository(
 func (r *PostgresRepository) GetById(ctx context.Context, id string) (*user.UserDomain, error) {
 	var user UserEntity
 
-	err := r.db.GetContext(ctx, &user, ``)
+	err := r.db.GetContext(ctx, &user, `select * from user`)
 	if err != nil {
 		return nil, fmt.Errorf("failed to count systems: %w", err)
 	}
