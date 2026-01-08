@@ -20,5 +20,5 @@ func ProvideUserRepo(db *sqlx.DB) userDomain.IRepository {
 }
 
 func BuildInfrastructureModule() fx.Option {
-	return fx.Provide("infrastructure", ProvideUserRepo, ProvideTaskRepo)
+	return fx.Module("infrastructure", fx.Provide(ProvideUserRepo, ProvideTaskRepo))
 }

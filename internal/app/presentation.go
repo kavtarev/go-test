@@ -22,7 +22,6 @@ func BuildPresentationModule() fx.Option {
 	return fx.Module(
 		"presentation",
 		fx.Provide(
-			// Handler layer
 			ProvideGetUserByIdHandler,
 			ProvideGetTaskByIdHandler,
 		),
