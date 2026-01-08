@@ -1,12 +1,16 @@
 package user
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 type UserDomain struct {
-	Id       string
-	Name     string
-	Email    string
-	Passport string
+	Id        string
+	Name      string
+	Email     string
+	Passport  string
+	CreatedAt time.Time
 }
 
 func (u *UserDomain) GetFullData() string {
