@@ -1,0 +1,11 @@
+**/db_data/**
+.idea/**
+dist/**
+swagger/**
+main
+auth-service
+bin/**
+
+# Linting and formatting
+.golangci.cache
+.golangci-lint.cache
