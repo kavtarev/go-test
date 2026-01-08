@@ -13,8 +13,8 @@ type UserEntity struct {
 	CreatedAt time.Time `db:"created_at"`
 }
 
-func (u *UserEntity) ToDomain() user.UserDomain {
-	return user.UserDomain{
+func (u *UserEntity) ToDomain() *user.UserDomain {
+	return &user.UserDomain{
 		Id:        u.Id,
 		Name:      u.Name,
 		Email:     u.Email,

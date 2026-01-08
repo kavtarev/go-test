@@ -15,8 +15,8 @@ type TaskEntity struct {
 	CreatedAt     time.Time      `db:"created_at"`
 }
 
-func (t *TaskEntity) ToDomain() task.TaskDomain {
-	return task.TaskDomain{
+func (t *TaskEntity) ToDomain() *task.TaskDomain {
+	return &task.TaskDomain{
 		Id:          t.Id,
 		Name:        t.Name,
 		Status:      t.Status,
