@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	_ "github.com/jackc/pgx/v5/stdlib"
 	"go-test/internal/app"
 	"go.uber.org/fx"
 )
@@ -11,4 +13,5 @@ func main() {
 	)
 
 	application.Run()
+	fmt.Println("should not be there")
 }

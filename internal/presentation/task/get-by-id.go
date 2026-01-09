@@ -22,3 +22,7 @@ func (c *TaskController) GetById(w http.ResponseWriter, r *http.Request) {
 
 	w.Write([]byte("task"))
 }
+
+func (c *TaskController) RegisterRoutes(mux *http.ServeMux) {
+	mux.HandleFunc("/get-task-by-id", c.GetById)
+}

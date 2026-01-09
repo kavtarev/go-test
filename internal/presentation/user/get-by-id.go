@@ -22,3 +22,7 @@ func (c *UserController) GetById(w http.ResponseWriter, r *http.Request) {
 
 	w.Write([]byte("user"))
 }
+
+func (c *UserController) RegisterRoutes(mux *http.ServeMux) {
+	mux.HandleFunc("/get-user-by-id", c.GetById)
+}
