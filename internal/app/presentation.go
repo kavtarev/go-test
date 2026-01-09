@@ -10,11 +10,11 @@ import (
 	"go.uber.org/fx"
 )
 
-func ProvideGetUserByIdHandler(u userUsecase.GetUserUsecase) userPresentation.UserController {
+func ProvideGetUserByIdHandler(u *userUsecase.GetUserUsecase) userPresentation.UserController {
 	return userPresentation.NewUserController(u)
 }
 
-func ProvideGetTaskByIdHandler(u taskUsecase.GetTaskUsecase) taskPresentation.TaskController {
+func ProvideGetTaskByIdHandler(u *taskUsecase.GetTaskUsecase) taskPresentation.TaskController {
 	return taskPresentation.NewTaskController(u)
 }
 

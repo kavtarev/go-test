@@ -14,7 +14,7 @@ func ProvideUserService(repo userDomain.IRepository) userDomain.IService {
 	return userDomain.NewUserService(repo)
 }
 
-func ProvideUserGetByIdUsecase(service userDomain.IService) userDomainUsecase.GetUserUsecase {
+func ProvideUserGetByIdUsecase(service userDomain.IService) *userDomainUsecase.GetUserUsecase {
 	return userDomainUsecase.NewGetUserUsecase(service)
 }
 
@@ -22,7 +22,7 @@ func ProvideTaskService(repo taskDomain.IRepository) taskDomain.IService {
 	return taskDomain.NewTaskService(repo)
 }
 
-func ProvideTaskGetByIdUsecase(service taskDomain.IService) taskDomainUsecase.GetTaskUsecase {
+func ProvideTaskGetByIdUsecase(service taskDomain.IService) *taskDomainUsecase.GetTaskUsecase {
 	return taskDomainUsecase.NewGetTaskUsecase(service)
 }
 

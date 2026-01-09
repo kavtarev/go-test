@@ -7,10 +7,10 @@ import (
 )
 
 type TaskController struct {
-	usecase usecase.GetTaskUsecase
+	usecase *usecase.GetTaskUsecase
 }
 
-func NewTaskController(usecase usecase.GetTaskUsecase) TaskController {
+func NewTaskController(usecase *usecase.GetTaskUsecase) TaskController {
 	return TaskController{usecase: usecase}
 }
 

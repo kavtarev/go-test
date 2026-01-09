@@ -7,10 +7,10 @@ import (
 )
 
 type UserController struct {
-	usecase usecase.GetUserUsecase
+	usecase *usecase.GetUserUsecase
 }
 
-func NewUserController(usecase usecase.GetUserUsecase) UserController {
+func NewUserController(usecase *usecase.GetUserUsecase) UserController {
 	return UserController{usecase: usecase}
 }
 
