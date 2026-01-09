@@ -6,7 +6,7 @@ type TaskService struct {
 	repo IRepository
 }
 
-func NewTaskService(repo IRepository) *TaskService {
+func NewTaskService(repo IRepository) IService {
 	return &TaskService{repo: repo}
 }
 
