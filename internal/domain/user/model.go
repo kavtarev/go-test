@@ -6,11 +6,11 @@ import (
 )
 
 type UserDomain struct {
-	Id        string
-	Name      string
-	Email     string
-	Passport  string
-	CreatedAt time.Time
+	Id        string    `json:"id"`
+	Name      string    `json:"name"`
+	Email     string    `json:"email"`
+	Passport  string    `json:"passport"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 func (u *UserDomain) GetFullData() string {

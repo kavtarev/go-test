@@ -6,11 +6,11 @@ import (
 )
 
 type TaskDomain struct {
-	Id          string
-	Name        string
-	Status      string
-	Responsible user.UserDomain
-	CreatedAt   time.Time
+	Id          string          `json:"id"`
+	Name        string          `json:"name"`
+	Status      string          `json:"status"`
+	Responsible user.UserDomain `json:"responsible"`
+	CreatedAt   time.Time       `json:"created_at"`
 }
 
 func (t *TaskDomain) IsResponsible(id string) bool {

@@ -23,7 +23,17 @@ func NewPostgresRepository(
 func (r *PostgresRepository) GetById(ctx context.Context, id string) (*user.UserDomain, error) {
 	var user UserEntity
 
-	err := r.db.GetContext(ctx, &user, `select * from user`)
+	err := r.db.GetContext(ctx, &user, `
+		select
+			id
+			, name
+			, email
+			, passport
+			, created_at
+	  from users
+		where id = $1
+	`, id)
+
 	if err != nil {
 		return nil, fmt.Errorf("error: %w", err)
 	}
