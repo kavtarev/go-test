@@ -25,7 +25,7 @@ func (r *PostgresRepository) GetById(ctx context.Context, id string) (*user.User
 
 	err := r.db.GetContext(ctx, &user, `select * from user`)
 	if err != nil {
-		return nil, fmt.Errorf("failed to count systems: %w", err)
+		return nil, fmt.Errorf("error: %w", err)
 	}
 
 	return user.ToDomain(), nil

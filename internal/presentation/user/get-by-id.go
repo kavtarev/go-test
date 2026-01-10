@@ -17,7 +17,8 @@ func NewUserController(usecase *usecase.GetUserUsecase) UserController {
 func (c *UserController) GetById(w http.ResponseWriter, r *http.Request) {
 	_, err := c.usecase.GetById(context.Background(), "")
 	if err != nil {
-		w.Write([]byte("error"))
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	w.Write([]byte("user"))
