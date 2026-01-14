@@ -21,9 +21,22 @@ func NewPostgresRepository(
 }
 
 func (r *PostgresRepository) GetById(ctx context.Context, id string) (*task.TaskDomain, error) {
-	var task TaskEntity
+	var task TaskEntityWithResponsible
 
-	err := r.db.GetContext(ctx, &task, `select * from task`)
+	err := r.db.GetContext(ctx, &task, `
+		select
+		    u.id as user_id
+			, u.name as user_name
+			, u.email as user_email
+			, u.passport as user_passport
+			, u.created_at as user_created_at
+			, t.id
+			, t.name
+			, t.status
+			, t.created_at
+			, t.responsible_id
+		from task t
+		inner join users u on t.responsible_id=u.id`)
 	if err != nil {
 		return nil, fmt.Errorf("error: %w", err)
 	}

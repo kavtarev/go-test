@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"go-test/internal/domain/task"
 	"go-test/internal/domain/user"
+	userInfra "go-test/internal/infrastructure/user"
 	"time"
 )
 
@@ -21,6 +22,21 @@ func (t *TaskEntity) ToDomain() *task.TaskDomain {
 		Name:        t.Name,
 		Status:      t.Status,
 		Responsible: user.UserDomain{},
+		CreatedAt:   t.CreatedAt,
+	}
+}
+
+type TaskEntityWithResponsible struct {
+	TaskEntity
+	Responsible userInfra.UserEntity `db:"user"`
+}
+
+func (t *TaskEntityWithResponsible) ToDomain() *task.TaskDomain {
+	return &task.TaskDomain{
+		Id:          t.Id,
+		Name:        t.Name,
+		Status:      t.Status,
+		Responsible: *t.Responsible.ToDomain(),
 		CreatedAt:   t.CreatedAt,
 	}
 }
