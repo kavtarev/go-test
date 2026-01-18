@@ -1,23 +1,33 @@
-const http2 = require('http2')
-const fs = require('fs')
+import http2 from 'http2'
+import { readFileSync } from 'fs';
 
-const session = http2.connect('https://localhost:3000', { ca: fs.readFileSync('localhost-cert.pem'), })
-session.on('error', (err) => console.error(err));
-const req = session.request({ ':path': '/' });
+const session = http2.connect('https://localhost:3001', { ca: readFileSync('localhost-cert.pem') })
 
-req.on('response', (headers) => {
-  for (const name in headers) {
-    console.log(`${name}: ${headers[name]}`);
-  }
-});
+const req = session.request({ ':path': '/' })
 
-req.setTimeout()
+req.on('error', (e) => {
+  console.log(1);
+  console.log(e);
 
-req.setEncoding('utf8');
-let data = '';
-req.on('data', (chunk) => { data += chunk; });
+})
+
+req.on('response', (headers, flags) => {
+  console.log(99999);
+  console.log(headers);
+})
+
+req.on('headers', h => {
+  console.log(222);
+  console.log(h);
+})
+
+let data = ''
+req.on('data', c => {
+  data += c
+})
+
 req.on('end', () => {
-  console.log(`\n${data}`);
-  session.close();
-});
-req.end();
+  console.log(data);
+})
+
+req.end()
