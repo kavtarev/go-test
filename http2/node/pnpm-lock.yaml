@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      '@types/node':
+        specifier: 18.15.3
+        version: 18.15.3
+
+packages:
+
+  '@types/node@18.15.3':
+    resolution: {integrity: sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==, tarball: https://artifactory.it-is.ru:443/artifactory/api/npm/npm/@types/node/-/node-18.15.3.tgz}
+
+snapshots:
+
+  '@types/node@18.15.3': {}

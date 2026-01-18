@@ -5,6 +5,7 @@ swagger/**
 main
 auth-service
 bin/**
+node_modules
 
 # Linting and formatting
 .golangci.cache
