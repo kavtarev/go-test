@@ -7,7 +7,7 @@ import (
 	"go.uber.org/fx"
 )
 
-func main() {
+func main2() {
 	application := fx.New(
 		app.Init(),
 	)
